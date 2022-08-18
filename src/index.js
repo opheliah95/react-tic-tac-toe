@@ -5,15 +5,21 @@ import './index.css';
 class Board extends React.Component {
 
   render() {
-    const data = [1, 2, 3];
-    console.log(data)
+    const totalRows = [1, 2, 3];
+    console.log(totalRows)
 
     return (
       <div className="row-1">
         {/* {data.map((num) => (
           <Square value={num} />
         ))} */}
-        <Row row={data} />
+        {
+          totalRows.map((num) => {
+            return <div key={num} className={`row-${num}`}>
+              <Row row={totalRows} />
+            </div>
+          })
+        }
       </div>
 
     );
@@ -33,22 +39,14 @@ class Square extends React.Component {
 
 class Row extends React.Component {
   render() {
-    console.log('this is:', this.props.row)
-    var arr =Array.from(this.props.row)
+    var arr = Array.from(this.props.row)
     console.log(arr)
     return (
-      <div className="rows">
-        {arr.map(
-          (r) => {
-           < var class_name = `row-${r}`;
-            <div className='class' key={r}>
-              <p>{r}</p>
-            </div>>
-          }
-        )
-        }
+      <div key={arr.id}>
+        {arr.map((post) =>
+          <Square value={post} />
+        )}
       </div >
-
     );
 
   }
