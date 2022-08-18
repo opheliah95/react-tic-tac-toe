@@ -10,10 +10,12 @@ class Board extends React.Component {
 
     return (
       <div className="row-1">
-        {data.map((num) => (
-          <button>{num}</button>
-        ))}
+        {/* {data.map((num) => (
+          <Square value={num} />
+        ))} */}
+        <Row row={data} />
       </div>
+
     );
   }
 
@@ -26,6 +28,29 @@ class Square extends React.Component {
         {this.props.value}
       </button>
     );
+  }
+}
+
+class Row extends React.Component {
+  render() {
+    console.log('this is:', this.props.row)
+    var arr =Array.from(this.props.row)
+    console.log(arr)
+    return (
+      <div className="rows">
+        {arr.map(
+          (r) => {
+           < var class_name = `row-${r}`;
+            <div className='class' key={r}>
+              <p>{r}</p>
+            </div>>
+          }
+        )
+        }
+      </div >
+
+    );
+
   }
 }
 
