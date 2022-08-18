@@ -5,18 +5,18 @@ import './index.css';
 class Board extends React.Component {
 
   render() {
-    const totalRows = [1, 2, 3];
-    console.log(totalRows)
+    const totalRows = [
+      {id: 1, content: [1, 2, 3]},
+      {id: 2, content: [4, 5, 6]},
+      {id: 2, content: [7, 8, 9]},
+    ]; // for tic tac toe we need 3 rows
 
     return (
-      <div className="row-1">
-        {/* {data.map((num) => (
-          <Square value={num} />
-        ))} */}
+      <div className="board">
         {
-          totalRows.map((num) => {
-            return <div key={num} className={`row-${num}`}>
-              <Row row={totalRows} />
+          totalRows.map((indv_row) => {
+            return <div key={indv_row.id} className={`row-${indv_row.id}`}>
+              <Row row={indv_row.content.map(x => x)} />
             </div>
           })
         }
